@@ -1,0 +1,19 @@
+We can see a path as a permutation of moves to the East and moves to the South.
+All of the paths for 2x2 are as follows.
+
+	EESS
+	ESES
+	ESSE
+	SEES
+	SESE
+	SSEE
+
+In order to compute this we just place the E's, the order in which this is done
+does not matter and when the E's are placed the S's are automatically also
+determined. This gives us the following formula for a NxN grid.
+
+	(2 * N)! / (N! * N!)
+
+So for the 20x20 grid we get.
+
+	(2 * N)! / (N! * N!) = (2 * 20)! / (20! * 20!) = 137846528820
