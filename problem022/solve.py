@@ -5165,13 +5165,11 @@ names = [
     "BRODERICK",
     "ALONSO"]
 
-from functools import reduce
-
 names.sort()
 
 total = 0
 for index, name in enumerate(names):
-    value = reduce(lambda x, y: x + y, [ord(c) - ord('A') + 1 for c in name])
+    value = sum([ord(c) - ord('A') + 1 for c in name])
     total += (index + 1) * value
 
 print(total)
