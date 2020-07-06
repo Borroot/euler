@@ -1,19 +1,14 @@
-primes = [2]
-last = 3
+import math
 
-def isprime(n):
-    for prime in primes:
-        if n % prime == 0:
-            return False
-        if prime > n // 2:
-            return True
-    return True
+size = 1000000
+numbers = [True] * (size - 2)
 
-while primes[len(primes) - 1] < 1000000:
-    if isprime(last):
-        primes.append(last)
-        print(last)
-    last += 2
+for i in range(2, math.floor(math.sqrt(size)) + 1):
+    if numbers[i - 2]:
+        for j in range(i**2, size, i):
+            numbers[j - 2] = False
+
+primes = [i + 2 for i, x in enumerate(numbers) if x]
 
 def istruncatable(prime):
     for i in range(1, len(str(prime))):
